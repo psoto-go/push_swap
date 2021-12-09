@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:45 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/01 19:38:10 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:44:48 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,20 +91,38 @@ void	tamanio(void){
 	printf("Contador es: %d", contador);
 }
 
-int		main(int argc, char **argv)
+void		checkParams(char **argv)
 {
-	int count;
+	int i;
+	int j;
+	int flag;
 
-	count = 1;
+	i = 1;
+	j = 0;
+	flag = 0;
+	while (argv[i])
+	{	flag = 0;
+		j = 0;
+		while (argv[i][j])
+		{
+			if (argv[i][j] <= 48 && argv[i][j] >= 57)
+				flag = 1;
+			j++;
+		}
+		if (flag == 0)
+			agregar(ft_atoi(argv[i]));
+
+		i++;
+	}
+	imprimir();
+	// tamanio();
+}
+
+int			main(int argc, char **argv)
+{
 	if(argc > 1)
 	{
-		while(argv[count])
-		{
-			agregar(ft_atoi(argv[count]));
-			count++;
+		checkParams(argv);
 
-		}
-		imprimir();
-		tamanio();
 	}
 }

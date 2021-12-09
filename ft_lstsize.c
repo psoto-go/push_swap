@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/09 19:33:25 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/10/08 16:11:40 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/12/09 19:26:45 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-struct nodo
+int	ft_lstsize(nodo *lst)
 {
-	int				number;
-	struct nodo		*next;
-};
+	int	count;
 
-struct nodo *superior = NULL;
-
-int	ft_atoi(const char *str);
-
-// int	ft_lstsize(nodo *lst);
-
-#endif
+	count = 0;
+	while (lst != NULL)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
+}
