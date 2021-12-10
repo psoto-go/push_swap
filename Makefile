@@ -6,11 +6,11 @@
 #    By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 13:53:43 by psoto-go          #+#    #+#              #
-#    Updated: 2021/12/10 13:01:09 by psoto-go         ###   ########.fr        #
+#    Updated: 2021/12/10 13:07:22 by psoto-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	push_swap.c
+SRCS			=	srcs/push_swap.c
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc

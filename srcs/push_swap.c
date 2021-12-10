@@ -6,15 +6,15 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:45 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/10 12:58:52 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:47:39 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // Operación push
 void agregar(int number) {
-    printf("Agregando %d\n", number);
+    // printf("Agregando %d\n", number);
     // El que se agregará; reservamos memoria
     struct nodo *nuevoNodo;
 	
@@ -46,59 +46,68 @@ void	tamanio(void){
 	printf("Contador es: %d", contador);
 }
 
-void		checkParams(char **argv)
+void	ft_error(void)
 {
-	int i;
-	int j;
-	int flag;
-
-	i = 1;
-	j = 0;
-	flag = 0;
-	while (argv[i])
-	{	flag = 0;
-		j = 0;
-		while (argv[i][j])
-		{
-			if (argv[i][j] <= 48 || argv[i][j] >= 57)
-			{
-				flag = 1;
-				break;
-			}
-			j++;
-		}
-		if (flag == 0)
-			agregar(ft_atoi(argv[i]));
-
-		i++;
-	}
-	imprimir();
-	tamanio();
+	write(1, "Error\n", 6);
+	// ft_lstclear(a, free);
+	exit(0);
 }
 
-// void	get_numbers(char *argv, t_list **a)
-// {
-// 	char	**param;
-// 	long	n;
-// 	int		j;
+int		checkParams(char *argv)
+{
+	long	n;
+	int		i;
 
-// 	param = ft_split(argv, ' ');
-// 	j = 0;
-// 	while (param[j] != '\0')
-// 	{
-// 		n = ft_check_num(a, param[j]);
-// 		init_stack(a, n);
-// 		free(param[j]);
-// 		j++;
-// 	}
-// 	free(param);
-// }
+	n = 0;
+	i = 0;
+	if (argv[0] == '+' || argv[0] == '-')
+		i++;
+	while (argv[i])
+	{
+		if(!ft_isdigit(argv[i]))
+			ft_error();
+		i++;
+	}
+	n = ft_atoi(argv);
+	if (n > MAX_INT || n < MIN_INT)
+		ft_error();
+	return (n);
+}
+
+void	get_numbers(char *argv)
+{
+	char	**aux;
+	long	num;
+	int		i;
+
+	aux = ft_split(argv, ' ');
+	i = 0;
+	while (aux[i] != '\0')
+	{
+		num = checkParams(aux[i]);
+		agregar(num);
+		free(aux[i]);
+		i++;
+	}
+	free(aux);
+}
 
 int			main(int argc, char **argv)
 {
-	if(argc > 1)
-	{
-		checkParams(argv);
+	int i;
 
+	i = 1;
+	if (!argv)
+		ft_error();
+	// if (!ft_checkdoubles(argv))
+	// 	ft_error();
+	while(i < argc)
+	{
+		get_numbers(argv[i]);
+		i++;
 	}
+	// imprimir();
+	// tamanio();
+	// printf("\n%d", ft_atoi("a2121adf"));
+	// system("leaks push_swap");
 }
