@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/09 19:33:25 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/10 12:58:34 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "../libft/libft.h"
 
 struct nodo
 {

@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${fileDirname}/a.out",
-			"args": ["32", "3123", "43"],
+			"args": ["32", "3123", "43", "ab", "pe", "43"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],
