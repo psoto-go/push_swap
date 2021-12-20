@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:15 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/09/28 10:30:03 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/09/29 14:00:02 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
+char	*ft_strrchr(const char *str, int c)
+{
+	int	count;
 
-#include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
-// typedef struct nodo
-// {
-// 	int				content;
-// 	struct nodo		*next;
-// }	t_nodo;
-
-#endif
+	count = ft_strlen(str);
+	while (count >= 0)
+	{
+		if (str[count] == (unsigned char)c)
+			return ((char *)str + (count));
+		count--;
+	}
+	return (0);
+}

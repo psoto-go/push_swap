@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:15 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/10/08 12:08:50 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/10/13 14:21:06 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	size_t	len;
+	size_t	i;
 
-#include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
-// typedef struct nodo
-// {
-// 	int				content;
-// 	struct nodo		*next;
-// }	t_nodo;
-
-#endif
+	if (!s || !f)
+		return ;
+	i = 0;
+	len = ft_strlen(s);
+	while (i < len)
+	{	
+		f(i, &s[i]);
+		i++;
+	}
+}

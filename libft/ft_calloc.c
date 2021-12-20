@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:15 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/09/30 14:55:49 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/10/07 09:59:14 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
+void	*ft_calloc(size_t num, size_t size)
+{
+	size_t			sum;
+	unsigned char	*aux;
+	size_t			count;
 
-#include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
-// typedef struct nodo
-// {
-// 	int				content;
-// 	struct nodo		*next;
-// }	t_nodo;
-
-#endif
+	sum = num * size;
+	aux = malloc(sum);
+	count = 0;
+	if (!aux)
+	{
+		return (NULL);
+	}
+	while (count < sum)
+	{
+		aux[count] = 0;
+		count++;
+	}
+	return (aux);
+}

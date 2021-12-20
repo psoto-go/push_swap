@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:15 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/09/27 11:46:18 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/09/29 14:10:51 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
+void	*ft_memcpy(void *str1, const void *str2, size_t n)
+{
+	unsigned char	*temp1;
+	unsigned char	*temp2;
+	size_t			count;
 
-#include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
-// typedef struct nodo
-// {
-// 	int				content;
-// 	struct nodo		*next;
-// }	t_nodo;
-
-#endif
+	temp1 = (unsigned char *)str1;
+	temp2 = (unsigned char *)str2;
+	count = 0;
+	if (str1 == NULL && str2 == NULL)
+		return (NULL);
+	while (count < n)
+	{	
+		temp1[count] = temp2[count];
+		count++;
+	}
+	return (str1);
+}

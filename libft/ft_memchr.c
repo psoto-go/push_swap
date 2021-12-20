@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:15 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/09/28 12:18:22 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/09/29 14:11:44 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
+void	*ft_memchr(const void *str, int c, size_t n)
+{
+	size_t			count;
+	unsigned char	*str1;
 
-#include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
-// typedef struct nodo
-// {
-// 	int				content;
-// 	struct nodo		*next;
-// }	t_nodo;
-
-#endif
+	count = 0;
+	str1 = (unsigned char *) str;
+	while (count < n)
+	{
+		if (str1[count] == (unsigned char) c)
+		{
+			return (str1 + count);
+		}
+		count++;
+	}
+	return (0);
+}
