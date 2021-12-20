@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:15 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/20 18:38:20 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,17 @@
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 
-// typedef struct nodo
-// {
-// 	int				content;
-// 	struct nodo		*next;
-// }	t_nodo;
+void	imprime(t_list *nodo);
+
+void	ft_error(t_list **nodo);
+
+int		checkParams(char *argv, t_list **nodo);
+
+t_list	*new_nodo(void *num, size_t size);
+
+void	check_doubles(t_list **nodo, long num);
+
+void	get_contents(char *argv, t_list **nodo);
+
 
 #endif

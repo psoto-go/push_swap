@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:56:45 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 18:39:18 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/12/20 18:36:51 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void imprime(t_list *nodo)
+int			main(int argc, char **argv)
 {
-	while (nodo)
+	t_list *nuevoNodo;
+	int i;
+
+	i = 1;
+	nuevoNodo = NULL;
+	if (!argv)
+		ft_error(&nuevoNodo);
+	while(i < argc)
 	{
-		printf("%d\n", *(int *)nodo->content);
-		nodo = nodo->next;
+		get_contents(argv[i], &nuevoNodo);
+		i++;
 	}
+	imprime(nuevoNodo);
+	// system("leaks push_swap");
 }
-
-void	ft_error(t_list **nodo)
-{
-	write(1, "Error\n", 6);
-	ft_lstclear(nodo, free);
-	exit(0);
-}
-

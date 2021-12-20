@@ -6,11 +6,11 @@
 #    By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 13:53:43 by psoto-go          #+#    #+#              #
-#    Updated: 2021/12/10 13:07:22 by psoto-go         ###   ########.fr        #
+#    Updated: 2021/12/20 18:40:09 by psoto-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	srcs/push_swap.c
+SRCS			=	srcs/push_swap.c srcs/main.c srcs/parseo.c
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
@@ -36,4 +36,4 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-.PHONY:			all clean fclean re bonus
+.PHONY:			all clean fclean re
