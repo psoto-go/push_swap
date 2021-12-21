@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:45 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:47:54 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 23:02:49 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_size_stack(t_list *nodoa)
 
 void	ft_error(t_list **nodo)
 {
-	write(1, "Error\n", 6);
+	ft_printf("%s", "Error\n");
 	ft_lstclear(nodo, free);
 	exit(0);
 }
