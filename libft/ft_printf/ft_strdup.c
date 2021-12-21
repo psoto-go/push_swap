@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/11/02 14:08:20 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 16:56:08 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+char	*ft_strdup(const char *src)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	char			*aux;
+	size_t			len;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
-	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
-	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	len = ft_strlen(src) + 1;
+	if (len == 1)
+		return (NULL);
+	aux = (char *)malloc(len * sizeof(char));
+	if (aux == NULL)
+		return (NULL);
+	ft_memcpy(aux, src, len);
+	return (aux);
 }

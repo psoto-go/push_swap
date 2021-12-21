@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_hexalen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/11/02 14:09:15 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 15:09:09 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+int	ft_hexalen(unsigned long int n)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	unsigned long int	co;
+	int					count;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
+	co = 0;
+	count = 1;
+	while (n >= 16)
 	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
+		co = n / 16;
+		n = co;
+		count++;
 	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	return (count);
 }

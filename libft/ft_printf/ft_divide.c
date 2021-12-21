@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_divide.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/11/03 16:03:40 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 16:09:51 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+char	*ft_divide(unsigned long int n, int mayus, char *string, int len)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	int	co;
+	int	i;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
+	co = 0;
+	i = len - 1;
+	while (n != 0)
 	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
+		co = n % 16;
+		if (co < 10)
+			co += 48;
+		else if (co >= 10 && mayus == 0)
+			co += 87;
+		else if (co >= 10 && mayus == 1)
+			co += 55;
+		string[i--] = co;
+		n /= 16;
 	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	string[len] = '\0';
+	return (string);
 }

@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 18:38:53 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 18:26:54 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 20:47:45 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	check_doubles(t_list **nodo, long num)
 			ft_error(nodo);
 		tmp = tmp->next;
 	}
-	// printf("%lu %ld\n", sizeof(int), num);
 	ft_lstadd_back(nodo, new_nodo((void *) &num, sizeof(int)));
 }
 

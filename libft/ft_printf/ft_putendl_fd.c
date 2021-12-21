@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/10/07 11:48:20 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/10/28 13:34:06 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	int	count;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
+	count = 0;
+	if (!s)
+		return ;
+	while (s[count])
 	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
+		write(fd, &s[count], 1);
+		count++;
 	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	write(fd, "\n", 1);
 }

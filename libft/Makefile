@@ -6,7 +6,7 @@
 #    By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 13:53:43 by psoto-go          #+#    #+#              #
-#    Updated: 2021/12/18 20:39:39 by psoto-go         ###   ########.fr        #
+#    Updated: 2021/12/21 21:46:48 by psoto-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,23 +21,30 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c ft_strdup.c \
 					ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 					ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 					ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+
 OBJS			= $(SRCS:.c=.o)
+
+FT_PRINTF_OBJS	= ./ft_printf/*.o
 
 CC				= gcc
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
-
 NAME			= libft.a
+FT_PRINTF		= ft_printf
+NAME_FT_PRINTF	= ft_printf/libftprintf.a
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
-
+				$(MAKE) -C ./ft_printf
+				@ar rc $(NAME) $(OBJS) $(FT_PRINTF_OBJS)
+				
 clean:
 				$(RM) $(OBJS)
+				$(MAKE) clean -C ./ft_printf/
 
 fclean:			clean
+				$(MAKE) fclean -C ./ft_printf/
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)

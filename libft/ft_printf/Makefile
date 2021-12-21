@@ -5,33 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/29 13:53:43 by psoto-go          #+#    #+#              #
-#    Updated: 2021/12/21 20:59:25 by psoto-go         ###   ########.fr        #
+#    Created: 2021/11/02 15:01:07 by psoto-go          #+#    #+#              #
+#    Updated: 2021/12/21 21:44:11 by psoto-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	srcs/push_swap.c srcs/main.c srcs/parseo.c
+SRCS			=	ft_detohe.c ft_hexalen.c ft_memcpy.c ft_printf.c ft_strlcat.c ft_ptrtohex.c \
+					ft_putchar_ft_printf_fd.c ft_putendl_fd.c ft_putnbr_ft_printf_fd.c ft_ptrtohex.c ft_strlcpy.c \
+					ft_putstr_fd.c ft_strdup.c ft_strlen.c ft_write.c ft_unsigputnbr_fd.c ft_divide.c
+
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
-RM				= rm -rf
+RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
-MAKE			= make
-LIBFT			= libft
-NAME			= push_swap
+
+NAME			= libftprintf.a
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(MAKE) all -C $(LIBFT)
-				$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
+				ar rc $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
-				$(MAKE) clean -C ./libft/
 
 fclean:			clean
-				$(MAKE) fclean -C ./libft/
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/11/02 14:07:49 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 15:07:49 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+void	*ft_memcpy(void *str1, const void *str2, size_t n)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	unsigned char	*temp1;
+	unsigned char	*temp2;
+	size_t			count;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
-	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
+	temp1 = (unsigned char *)str1;
+	temp2 = (unsigned char *)str2;
+	count = 0;
+	if (str1 == NULL && str2 == NULL)
+		return (NULL);
+	while (count < n)
+	{	
+		temp1[count] = temp2[count];
+		count++;
 	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	return (str1);
 }

@@ -6,19 +6,50 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:45 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 18:58:09 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 20:47:54 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void imprime(t_list *nodo)
+void	ft_print_stack(t_list *nodoa, t_list *nodob)
 {
-	while (nodo)
+	int flag;
+
+	flag = 0;
+	if (ft_size_stack(nodoa) > 0)
+		flag = 1;
+	while (nodoa)
 	{
-		printf("%d\n", *(int *)nodo->content);
-		nodo = nodo->next;
+		ft_printf("%d\n", *(int *)nodoa->content);
+		nodoa = nodoa->next;
 	}
+	if (flag == 1)
+		ft_printf("--\na\n");
+	flag = 0;
+	if (ft_size_stack(nodob) > 0)
+		flag = 1;
+	while (nodob)
+	{
+		ft_printf("%d\n", *(int *)nodob->content);
+		nodob = nodob->next;
+	}
+	if (flag == 1)
+		ft_printf("--\nb\n");
+
+}
+
+int		ft_size_stack(t_list *nodoa)
+{
+	int i;
+
+	i = 0;
+	while (nodoa)
+	{
+		nodoa = nodoa->next;
+		i++;
+	}
+	return(i);
 }
 
 void	ft_error(t_list **nodo)

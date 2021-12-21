@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_write.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/11/02 14:08:53 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 17:21:24 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+void	ft_write(char *c, int *res, int flag)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	char	*aux;
+	int		i;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
+	if (c == NULL)
+		aux = ft_strdup("(null)");
+	else
+		aux = ft_strdup(c);
+	if (!aux)
+		return ;
+	i = 0;
+	while (aux[i] != '\0')
 	{
-		get_contents(argv[i], &nuevoNodoA);
+		write(1, &aux[i], 1);
 		i++;
+		*res += 1;
 	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	free(aux);
+	if (flag == 1)
+		free(c);
 }

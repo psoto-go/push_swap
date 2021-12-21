@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/09/27 13:26:00 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 15:05:57 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+size_t	ft_strlcpy(char *destination, const char *source, size_t size)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	unsigned int	count;
+	unsigned int	output;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
+	output = 0;
+	while (source[output] != '\0')
+		output++;
+	if (size == 0)
+		return (ft_strlen(source));
+	count = 0;
+	while (source[count] != '\0' && count < (size - 1))
 	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
+		destination[count] = source[count];
+		count++;
 	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	destination[count++] = '\0';
+	return (output);
 }

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ptrtohex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:48:21 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/11/03 12:39:06 by psoto-go          #+#    #+#             */
+/*   Updated: 2021/11/03 16:36:22 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-int			main(int argc, char **argv)
+char	*ft_ptrtohex(void *p)
 {
-	t_list *nuevoNodoA;
-	t_list *nuevoNodoB;
-	int i;
+	char	*aux;
+	char	*ptr;
+	int		len;
 
-	i = 1;
-	nuevoNodoA = NULL;
-	nuevoNodoB = NULL;
-	while(i < argc)
-	{
-		get_contents(argv[i], &nuevoNodoA);
-		i++;
-	}
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
-	ft_printf("%d",ft_size_stack(nuevoNodoA));
-
-	// system("leaks push_swap");
+	ptr = ft_detohe((unsigned long int) p, 0);
+	aux = malloc(sizeof(char) * (ft_strlen(ptr) + 3));
+	if (!aux)
+		return (0);
+	len = ft_strlen(ptr);
+	ft_strlcpy(aux, "0x", 3);
+	ft_strlcat(aux, ptr, len + 3);
+	free(ptr);
+	return (aux);
 }
