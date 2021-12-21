@@ -6,15 +6,15 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 11:59:57 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 18:53:36 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:26:38 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_num(const char *str, int i, int s)
+int	is_num(const char *str, int i, int s, int *flag)
 {
-	unsigned long long	num;
+	unsigned int	num;
 
 	num = 0;
 	while (str[i] >= '0' && str[i] <= '9')
@@ -22,17 +22,16 @@ int	is_num(const char *str, int i, int s)
 		num = (num * 10) + (int)(str[i] - '0');
 		i++;
 	}
-	s = 0;
-	// if (s != '-' && num > 9223372036854775807)
-	// 	return (-1);
-	// if (s == '-' && num > 9223372036854775807)
-	// 	return (0);
-	// if (s == '-')
-	// 	return (-num);
+	if (s != '-' && num > 2147483647)
+		*flag = 1;
+	if (s == '-' && num > 2147483648)
+		*flag = 1;
+	if (s == '-')
+		return (-num);
 	return (num);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *flag)
 {
 	int	i;
 	int	s;
@@ -53,6 +52,6 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	if (str[i] >= '0' && str[i] <= '9')
-		return (is_num(str, i, s));
+		return (is_num(str, i, s, flag));
 	return (0);
 }

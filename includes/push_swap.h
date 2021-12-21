@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 18:38:20 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:27:31 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@
 #include <unistd.h>
 
 #include "../libft/libft.h"
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
 
 void	imprime(t_list *nodo);
 

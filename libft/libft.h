@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 10:43:33 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 14:30:24 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:26:33 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		*ft_memchr(const void *str, int c, size_t n);
 
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
-int			ft_atoi(const char *str);
+int			ft_atoi(const char *str, int *flag);
 
 void		*ft_calloc(size_t num, size_t size);
 

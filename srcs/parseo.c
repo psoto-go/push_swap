@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 18:38:53 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/20 18:58:03 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:26:54 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ int		checkParams(char *argv, t_list **nodo)
 {
 	int		n;
 	int		i;
+	int 	flag;
 
 	n = 0;
 	i = 0;
+	flag = 0;
 	if (argv[0] == '+' || argv[0] == '-')
 		i++;
 	while (argv[i])
@@ -27,8 +29,8 @@ int		checkParams(char *argv, t_list **nodo)
 			ft_error(nodo);
 		i++;
 	}
-	n = ft_atoi(argv);
-	if (n > MAX_INT || n < MIN_INT)
+	n = ft_atoi(argv, &flag);
+	if (flag == 1)
 		ft_error(nodo);	
 	return (n);
 }
