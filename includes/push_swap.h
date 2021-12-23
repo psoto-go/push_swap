@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:37:46 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/23 01:40:13 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,35 @@ void	check_doubles(t_list **nodo, long num);
 void	get_contents(char *argv, t_list **nodo);
 
 int		ft_size_stack(t_list *nodoa);
+
+int		sorted(t_list **stack, int len);
+
+void	start_sorting(t_list **stack_a, t_list **stack_b);
+
+void	sort_small_stack(t_list **stack_a, t_list ** stack_b, int len);
+
+void	push_b(t_list **stack_a, t_list **stack_b);
+
+void	push_a(t_list **stack_a, t_list **stack_b);
+
+void	delete_content(t_list **stack_a);
+
+void	swap(t_list **stack_a, int flag, char c);
+
+void	swap_ss(t_list **stack_a, t_list **stack_b);
+
+void	rotate(t_list **stack, int flag , char c);
+
+void	rotate_rr(t_list **stack_a, t_list **stack_b);
+
+void	reverse_rotate(t_list **stack,int flag, char c);
+
+void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
+
+void	ft_prevlast(t_list **stack);
+
+
+
 
 
 

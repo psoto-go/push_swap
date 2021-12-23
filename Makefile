@@ -6,11 +6,13 @@
 #    By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 13:53:43 by psoto-go          #+#    #+#              #
-#    Updated: 2021/12/21 20:59:25 by psoto-go         ###   ########.fr        #
+#    Updated: 2021/12/22 20:11:12 by psoto-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	srcs/push_swap.c srcs/main.c srcs/parseo.c
+SRCS			=	srcs/push_swap.c srcs/main.c srcs/parseo.c srcs/sorted.c \
+					srcs/start.c srcs/sort_small_stack.c srcs/pushs.c srcs/reverses.c \
+					srcs/rotates.c srcs/swaps.c  
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
