@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 20:09:42 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/23 01:08:23 by psoto-go         ###   ########.fr       */
+/*   Updated: 2021/12/23 21:04:22 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap(t_list **stack, int flag, char c)
 	int 	len;
 
 	len = ft_size_stack(*stack);
-	if (len > 1)
+	if (len >= 2)
 	{
 		aux = *stack;
 		tmp = (*stack)->content;
@@ -28,6 +28,8 @@ void	swap(t_list **stack, int flag, char c)
 		if (flag == 0)
 			ft_printf("s%c\n", c);
 	}
+	else
+		return ;
 }
 
 void	swap_ss(t_list **stack_a, t_list **stack_b)
