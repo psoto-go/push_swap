@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/18 13:36:01 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:42:01 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			main(int argc, char **argv)
 		i++;
 	}
 	start_sorting(&nuevoNodoA, &nuevoNodoB);
-	ft_print_stack(nuevoNodoA, nuevoNodoB);
+	// ft_print_stack(nuevoNodoA, nuevoNodoB);
 	// ft_printf("%d Tamaño\n",ft_size_stack(nuevoNodoA));
 
 	// system("leaks push_swap");
