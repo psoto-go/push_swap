@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 20:10:07 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/23 00:29:41 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:02:42 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	delete_content(t_list **stack_a)
 {
-	t_list *tmp;
-	t_list *aux;
+	t_list	*tmp;
+	t_list	*aux;
 
 	tmp = *stack_a;
 	aux = *stack_a;
@@ -32,7 +32,7 @@ void	push_all(t_list **stack, int num)
 
 void	push_b(t_list **stack_a, t_list **stack_b)
 {
-	int 	len;
+	int	len;
 
 	len = ft_size_stack(*stack_a);
 	if (len != 0)
@@ -45,7 +45,7 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 
 void	push_a(t_list **stack_a, t_list **stack_b)
 {
-	int 	len;
+	int	len;
 
 	len = ft_size_stack(*stack_b);
 	if (len != 0)

@@ -6,17 +6,17 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 20:10:18 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/23 01:37:01 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:01:20 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		rotate(t_list **stack,int flag, char c)
+void	rotate(t_list **stack, int flag, char c)
 {
-	t_list 	*tmp;
-	t_list 	*aux;
-	int 	num;
+	t_list	*tmp;
+	t_list	*aux;
+	int		num;
 
 	if (ft_size_stack(*stack) >= 2)
 	{
@@ -25,7 +25,7 @@ void		rotate(t_list **stack,int flag, char c)
 		num = *(int *)tmp->content;
 		ft_lstadd_back(&tmp, new_nodo((void *)&num, sizeof(int)));
 		tmp = aux->next;
-		*stack = tmp;	
+		*stack = tmp;
 		free(aux->content);
 		free(aux);
 		if (flag == 0)

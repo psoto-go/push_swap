@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "push_swap.h": "c",
-    "algorithm": "c"
+    "algorithm": "c",
+    "stdarg.h": "c"
   },
   "C_Cpp_Runner.warnings": [
     "-Wall",

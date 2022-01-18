@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:45 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/22 19:31:24 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:02:49 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ void	ft_error(t_list **nodo)
 	ft_lstclear(nodo, free);
 	exit(0);
 }
-

@@ -6,17 +6,17 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 18:38:53 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/21 20:47:45 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:05:48 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		checkParams(char *argv, t_list **nodo)
+int	check_params(char *argv, t_list **nodo)
 {
 	int		n;
 	int		i;
-	int 	flag;
+	int		flag;
 
 	n = 0;
 	i = 0;
@@ -25,13 +25,13 @@ int		checkParams(char *argv, t_list **nodo)
 		i++;
 	while (argv[i])
 	{
-		if(!ft_isdigit(argv[i]))
+		if (!ft_isdigit(argv[i]))
 			ft_error(nodo);
 		i++;
 	}
 	n = ft_atoi(argv, &flag);
 	if (flag == 1)
-		ft_error(nodo);	
+		ft_error(nodo);
 	return (n);
 }
 
@@ -52,14 +52,12 @@ t_list	*new_nodo(void *num, size_t size)
 	ft_memcpy(con, num, size);
 	tmp->content = con;
 	tmp->next = NULL;
-	return(tmp);
-
-		
+	return (tmp);
 }
 
 void	check_doubles(t_list **nodo, long num)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *nodo;
 	while (tmp)
@@ -71,7 +69,6 @@ void	check_doubles(t_list **nodo, long num)
 	ft_lstadd_back(nodo, new_nodo((void *) &num, sizeof(int)));
 }
 
-
 void	get_contents(char *argv, t_list **nodo)
 {
 	char	**aux;
@@ -82,7 +79,7 @@ void	get_contents(char *argv, t_list **nodo)
 	i = 0;
 	while (aux[i])
 	{
-		num = checkParams(aux[i], nodo);
+		num = check_params(aux[i], nodo);
 		check_doubles(nodo, num);
 		free(aux[i]);
 		i++;

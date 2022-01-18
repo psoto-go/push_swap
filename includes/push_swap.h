@@ -6,23 +6,22 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/23 01:41:55 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:11:27 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-#include "../libft/libft.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <limits.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include "../libft/libft.h"
 
 void	ft_print_stack(t_list *nodoa, t_list *nodob);
 
@@ -42,7 +41,7 @@ int		sorted(t_list **stack, int len);
 
 void	start_sorting(t_list **stack_a, t_list **stack_b);
 
-void	sort_small_stack(t_list **stack_a, t_list ** stack_b, int len);
+void	sort_small_stack(t_list **stack_a, t_list **stack_b, int len);
 
 void	push_b(t_list **stack_a, t_list **stack_b);
 
@@ -54,11 +53,11 @@ void	swap(t_list **stack_a, int flag, char c);
 
 void	swap_ss(t_list **stack_a, t_list **stack_b);
 
-void	rotate(t_list **stack, int flag , char c);
+void	rotate(t_list **stack, int flag, char c);
 
 void	rotate_rr(t_list **stack_a, t_list **stack_b);
 
-void	reverse_rotate(t_list **stack,int flag, char c);
+void	reverse_rotate(t_list **stack, int flag, char c);
 
 void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
 

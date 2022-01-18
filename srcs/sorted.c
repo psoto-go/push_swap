@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 00:00:22 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/22 19:20:37 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:51:56 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_stack(t_list *nodoa, t_list *nodob)
 {
-	int flag;
+	int	flag;
 
 	flag = 0;
 	if (ft_size_stack(nodoa) > 0)
@@ -36,12 +36,11 @@ void	ft_print_stack(t_list *nodoa, t_list *nodob)
 	}
 	if (flag == 1)
 		ft_printf("--\nb\n");
-
 }
 
-int		ft_size_stack(t_list *nodoa)
+int	ft_size_stack(t_list *nodoa)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (nodoa)
@@ -49,14 +48,13 @@ int		ft_size_stack(t_list *nodoa)
 		nodoa = nodoa->next;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
-
-int		sorted(t_list **stack, int len)
+int	sorted(t_list **stack, int len)
 {
-	t_list 	*tmp;
-	int 	i;
+	t_list	*tmp;
+	int		i;
 	int		flag;
 
 	tmp = *stack;
@@ -69,5 +67,5 @@ int		sorted(t_list **stack, int len)
 		tmp = tmp->next;
 		i++;
 	}
-	return(flag);
+	return (flag);
 }

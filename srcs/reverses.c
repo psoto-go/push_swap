@@ -6,13 +6,13 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 20:10:29 by psoto-go          #+#    #+#             */
-/*   Updated: 2021/12/23 01:38:45 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:02:06 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		ft_prevlast(t_list **stack)
+void	ft_prevlast(t_list **stack)
 {
 	t_list	*tmp;
 	int		i;
@@ -27,14 +27,13 @@ void		ft_prevlast(t_list **stack)
 		i++;
 	}
 	tmp->next = NULL;
-	
 }
 
-void		reverse_rotate(t_list **stack,int flag, char c)
+void	reverse_rotate(t_list **stack, int flag, char c)
 {
-	t_list 	*tmp;
-	t_list 	*aux;
-	int 	num;
+	t_list	*tmp;
+	t_list	*aux;
+	int		num;
 	int		len;
 
 	len = ft_size_stack(*stack);
