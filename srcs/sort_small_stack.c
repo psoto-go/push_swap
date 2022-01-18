@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 19:31:49 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/03 02:02:44 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:05:37 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,22 @@ void	sort_three(t_list **stack_a)
 	num1 = *(int *)(*stack_a)->content;
 	num2 = *(int *)(*stack_a)->next->content;
 	num3 = *(int *)(*stack_a)->next->next->content;
-	
-	if (num1 < num2 && num3 < num2 && num3 < num1)
-		reverse_rotate(stack_a, 0 ,'a');
-	else if (num1 > num2 && num1 > num3)
-		rotate(stack_a, 0 , 'a');
-	else if (num2 > num1 && num2 > num3)
+	if (num1 > num2 && num2 < num3 && num1 < num3)
+		swap(stack_a, 0, 'a');
+	else if (num1 > num2 && num1 > num3 && num2 > num3)
 	{
 		swap(stack_a, 0, 'a');
-		rotate(stack_a, 0 , 'a');
-
-	}
-	else if (num1 < num2 && num2 > num3 && num3 < num1)
 		reverse_rotate(stack_a, 0 ,'a');
-	else if (num1 > num2)
+	}
+	else if (num1 > num2 && num1 > num3 && num2 < num3)
+		rotate(stack_a, 0 , 'a');
+	else if (num1 < num2 && num2 > num3 && num3 > num1)
+	{
 		swap(stack_a, 0, 'a');
+		rotate(stack_a, 0 ,'a');
+	}
+	else if (num1 < num2  && num1 > num3 && num2 > num3)
+		reverse_rotate(stack_a, 0 ,'a');
 }
 
 void	sort_four(t_list **stack_a)
@@ -126,17 +127,17 @@ void	sort_small_stack(t_list **stack_a, t_list ** stack_b, int len)
 		sort_two(stack_a);
 	else if (len == 3)
 	{
-		while (!sorted(stack_a, 3))
+		while (!sorted(stack_a, len))
 			sort_three(stack_a);
 	}
-	else if (len == 4)
+	// else if (len <= 4)
+	// {
+	// 	while (!sorted(stack_a, len))
+	// 		sort_four(stack_a);
+	// }
+	else if (len == 5)
 	{
-		while (!sorted(stack_a, 4))
-			sort_four(stack_a);
-	}
-	else
-	{
-		while (!sorted(stack_a, 5))
+		while (!sorted(stack_a, len))
 			sort_five(stack_a, stack_b);
 	}
 	// swap_ss(stack_a, stack_b);
