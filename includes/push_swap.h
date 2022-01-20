@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/18 14:11:27 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/20 18:57:58 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ void	reverse_rotate(t_list **stack, int flag, char c);
 void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
 
 void	ft_prevlast(t_list **stack);
+
+void	sort_big_stack(t_list **stack_a, t_list **stack_b, int len);
+
+void	renom_nums(t_list **stack_a, int len);
 
 #endif

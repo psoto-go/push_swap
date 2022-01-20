@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 19:31:49 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/18 13:58:15 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/20 18:56:09 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,21 +142,10 @@ void	sort_small_stack(t_list **stack_a, t_list ** stack_b, int len)
 		while (!sorted(stack_a, len))
 			sort_three(stack_a);
 	}
-	// else if (len <= 4)
-	// {
-	// 	while (!sorted(stack_a, len))
-	// 		sort_four(stack_a);
-	// }
-	else if (len <= 5)
+	else
 	{
 		while (!sorted(stack_a, len))
 			sort_five(stack_a, stack_b);
 	}
-	// swap_ss(stack_a, stack_b);
-	// rotate(stack_a, 'a');
-	// rotate_rr(stack_a,stack_b);
-	// reverse_rotate_rr(stack_a, stack_b);
-
-	// rotate(stack_b, 'b');
 
 }

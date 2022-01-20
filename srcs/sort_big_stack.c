@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_big_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 18:36:28 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/20 19:07:11 by psoto-go         ###   ########.fr       */
+/*   Created: 2022/01/19 12:47:08 by psoto-go          #+#    #+#             */
+/*   Updated: 2022/01/20 19:07:54 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_big_stack(t_list **stack_a, t_list **stack_b, int len)
 {
-	t_list	*nuevo_nodo_a;
-	t_list	*nuevo_nodo_b;
-	int		i;
+	int	num_bits;
+	int	i;
+	int	num;
+	int	j;
 
-	i = 1;
-	nuevo_nodo_a = NULL;
-	nuevo_nodo_b = NULL;
-	while (i < argc)
+	num_bits = 0;
+	while ((len - 1)>> num_bits != 0)
+		num_bits++;
+	i = 0;
+	while (i < num_bits)
 	{
-		get_contents(argv[i], &nuevo_nodo_a);
+		j = 0;
+		while (j < len)
+		{
+			num = *(int *)(*stack_a)->content;
+			if (((num >> i) & 1) == 1)
+				rotate(stack_a, 0, 'a');
+			else
+				push_b(stack_a, stack_b);
+			j++;
+		}
+		while (ft_size_stack(*stack_b) != 0)
+			push_a(stack_a, stack_b);
 		i++;
 	}
-	start_sorting(&nuevo_nodo_a, &nuevo_nodo_b);
-	// ft_print_stack(nuevo_nodo_a, nuevo_nodo_b);
-	// printf("%d tamaño", ft_size_stack(nuevo_nodo_a));
-	// ft_printf("%d Tamaño\n",ft_size_stack(nuevo_nodo_a));
-	// system("leaks push_swap");
 }
+
