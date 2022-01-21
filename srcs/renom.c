@@ -6,38 +6,56 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:39:40 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/20 19:04:14 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:25:47 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	renom_nums(t_list **stack_a, int len)
+void	new_stack(t_list **stack_a, int len, int *copy, int *new_array)
 {
-	int *new_array;
-	int *copy;
-	int i;
-	int j;
-	int tmp;
-	t_list *tmp_lst;
+	int	i;
 
-	tmp_lst = *stack_a;
+	ft_lstclear(stack_a, free);
 	i = 0;
-	j = 0;
-	new_array = malloc(sizeof(int) * len);
 	while (i < len)
 	{
-		new_array[i] = *(int *)tmp_lst->content;
-		tmp_lst = tmp_lst->next; 
+		ft_lstadd_back(stack_a, new_nodo((void *) &copy[i], sizeof(int)));
 		i++;
 	}
-	copy = malloc(sizeof(int) * len);
+	free(copy);
+	free(new_array);
+}
+
+int	give_positions(int *copy, int len, int *new_array)
+{
+	int	i;
+	int	j;
+
 	i = 0;
-	while(i < len)
-	{	
-		copy[i] = new_array[i];
+	while (i < len)
+	{
+		j = 0;
+		while (j < len)
+		{
+			if (copy[i] == new_array[j])
+			{
+				copy[i] = j;
+				break ;
+			}
+			j++;
+		}
 		i++;
 	}
+	return (*copy);
+}
+
+int	sort_in_array(int len, int *new_array)
+{
+	int	i;
+	int	tmp;
+	int	j;
+
 	i = 0;
 	tmp = 0;
 	while (i < len)
@@ -55,55 +73,33 @@ void	renom_nums(t_list **stack_a, int len)
 		}
 		i++;
 	}
-	
+	return (*new_array);
+}
+
+void	renom_nums(t_list **stack_a, int len)
+{
+	int		*new_array;
+	int		*copy;
+	int		i;
+	t_list	*tmp_lst;
+
+	tmp_lst = *stack_a;
 	i = 0;
+	new_array = malloc(sizeof(int) * len);
 	while (i < len)
 	{
-		j = 0;
-		while (j < len)
-		{
-			if (copy[i] == new_array[j])
-			{
-				copy[i] = j;
-				break ;
-			}
-			j++;
-		}
+		new_array[i] = *(int *)tmp_lst->content;
+		tmp_lst = tmp_lst->next;
 		i++;
 	}
-
-
-	ft_lstclear(stack_a, free);
+	copy = malloc(sizeof(int) * len);
 	i = 0;
 	while (i < len)
-	{
-		ft_lstadd_back(stack_a, new_nodo((void *) &copy[i], sizeof(int)));
+	{	
+		copy[i] = new_array[i];
 		i++;
 	}
-	free(copy);
-	free(new_array);
-
-
-
-
-
-
-
-
-
-
-
-	// i = 0;
-	// while (i < len)
-	// {
-	// 	// printf("%d ", copy[i]);
-	// 	printf("%d   ", copy[i]);
-	// 	printf("%d ", new_array[i]);
-
-	// 	i++;
-	// }
-		// printf("%d tamaño", ft_size_stack(*stack_a));
-	// ft_print_stack(*stack_a, 0);
-	
-	
+	sort_in_array(len, new_array);
+	give_positions(copy, len, new_array);
+	new_stack(stack_a, len, copy, new_array);
 }

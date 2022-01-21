@@ -6,49 +6,11 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 19:31:49 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/20 18:56:09 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:42:51 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	sort_two(t_list **stack_a)
-{
-	int	num1;
-	int	num2;
-
-	num1 = *(int *)(*stack_a)->content;
-	num2 = *(int *)(*stack_a)->next->content;
-	if (num1 > num2)
-		swap(stack_a, 0, 'a');
-}
-
-void	sort_three(t_list **stack_a)
-{
-	int	num1;
-	int	num2;
-	int	num3;
-
-	num1 = *(int *)(*stack_a)->content;
-	num2 = *(int *)(*stack_a)->next->content;
-	num3 = *(int *)(*stack_a)->next->next->content;
-	if (num1 > num2 && num2 < num3 && num1 < num3)
-		swap(stack_a, 0, 'a');
-	else if (num1 > num2 && num1 > num3 && num2 > num3)
-	{
-		swap(stack_a, 0, 'a');
-		reverse_rotate(stack_a, 0, 'a');
-	}
-	else if (num1 > num2 && num1 > num3 && num2 < num3)
-		rotate(stack_a, 0, 'a');
-	else if (num1 < num2 && num2 > num3 && num3 > num1)
-	{
-		swap(stack_a, 0, 'a');
-		rotate(stack_a, 0, 'a');
-	}
-	else if (num1 < num2 && num1 > num3 && num2 > num3)
-		reverse_rotate(stack_a, 0, 'a');
-}
 
 void	sort_four(t_list **stack_a)
 {
@@ -74,37 +36,43 @@ void	sort_four(t_list **stack_a)
 		rotate(stack_a, 0, 'a');
 }
 
-void	sort_five_ifs(t_list **stack_a)
+void	sort_five_ifs(t_list **stack_a, int n1, int n2, int n3)
 {
-	int	num1;
-	int	num2;
-	int	num3;
-	int	num4;
-	int	num5;
+	int	n4;
+	int	n5;
 
-	num1 = *(int *)(*stack_a)->content;
-	num2 = *(int *)(*stack_a)->next->content;
-	num3 = *(int *)(*stack_a)->next->next->content;
-	num4 = *(int *)(*stack_a)->next->next->next->content;
-	num5 = *(int *)(*stack_a)->next->next->next->next->content;
-	if (num1 > num2 && num1 < num3)
+	n4 = *(int *)(*stack_a)->next->next->next->content;
+	n5 = *(int *)(*stack_a)->next->next->next->next->content;
+	if (n1 > n2 && n1 < n3)
 		swap(stack_a, 0, 'a');
-	else if (num1 > num3 && num1 < num4)
+	else if (n1 > n3 && n1 < n4)
 	{
 		swap(stack_a, 0, 'a');
 		rotate(stack_a, 0, 'a');
 		swap(stack_a, 0, 'a');
 		reverse_rotate(stack_a, 0, 'a');
 	}
-	else if (num1 > num4 && num1 < num5)
+	else if (n1 > n4 && n1 < n5)
 	{
 		reverse_rotate(stack_a, 0, 'a');
 		swap(stack_a, 0, 'a');
 		rotate(stack_a, 0, 'a');
 		rotate(stack_a, 0, 'a');
 	}
-	else if (num1 > num5)
+	else if (n1 > n5)
 		rotate(stack_a, 0, 'a');
+}
+
+void	vars_five(t_list **stack_a)
+{
+	int	n1;
+	int	n2;
+	int	n3;
+
+	n1 = *(int *)(*stack_a)->content;
+	n2 = *(int *)(*stack_a)->next->content;
+	n3 = *(int *)(*stack_a)->next->next->content;
+	sort_five_ifs(stack_a, n1, n2, n3);
 }
 
 void	sort_five(t_list **stack_a, t_list **stack_b)
@@ -129,11 +97,11 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 			sort_four(stack_a);
 		push_a(stack_a, stack_b);
 		while (!sorted(stack_a, 5))
-			sort_five_ifs(stack_a);
+			vars_five(stack_a);
 	}
 }
 
-void	sort_small_stack(t_list **stack_a, t_list ** stack_b, int len)
+void	sort_small_stack(t_list **stack_a, t_list **stack_b, int len)
 {
 	if (len <= 2)
 		sort_two(stack_a);
@@ -147,5 +115,4 @@ void	sort_small_stack(t_list **stack_a, t_list ** stack_b, int len)
 		while (!sorted(stack_a, len))
 			sort_five(stack_a, stack_b);
 	}
-
 }

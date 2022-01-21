@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:57:02 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/20 18:57:58 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:29:22 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,9 @@ void	ft_prevlast(t_list **stack);
 void	sort_big_stack(t_list **stack_a, t_list **stack_b, int len);
 
 void	renom_nums(t_list **stack_a, int len);
+
+void	sort_two(t_list **stack_a);
+
+void	sort_three(t_list **stack_a);
 
 #endif

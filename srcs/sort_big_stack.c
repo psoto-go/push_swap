@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 12:47:08 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/20 19:07:54 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:07:12 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int len)
 	int	j;
 
 	num_bits = 0;
-	while ((len - 1)>> num_bits != 0)
+	while ((len - 1) >> num_bits != 0)
 		num_bits++;
 	i = 0;
 	while (i < num_bits)
@@ -40,4 +40,3 @@ void	sort_big_stack(t_list **stack_a, t_list **stack_b, int len)
 		i++;
 	}
 }
-
