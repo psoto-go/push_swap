@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 18:38:53 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/24 17:55:25 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:10:43 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_params(char *argv, t_list **nodo)
 			ft_error(nodo);
 		i++;
 	}
-	n = ft_atoi(argv, &flag);
+	n = ft_atol(argv, &flag);
 	if (flag == 1)
 		ft_error(nodo);
 	return (n);
