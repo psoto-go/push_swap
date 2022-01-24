@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 18:38:53 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/01/18 14:05:48 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:55:25 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_params(char *argv, t_list **nodo)
 {
-	int		n;
+	long	n;
 	int		i;
 	int		flag;
 
